@@ -46,6 +46,16 @@ const navMenu = [
         ref: "/admin/reviews",
     },
     {
+    icon: <AddBoxIcon />,
+    label: "Vouchers",
+    ref: "/admin/vouchers",
+},
+{
+    icon: <AccountBoxIcon />,
+    label: "Payment Settings",
+    ref: "/admin/payment-settings",
+},
+    {
         icon: <AccountBoxIcon />,
         label: "My Profile",
         ref: "/account",

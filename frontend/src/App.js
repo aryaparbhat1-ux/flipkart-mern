@@ -34,6 +34,8 @@ import UpdateProduct from './components/Admin/UpdateProduct';
 import UserTable from './components/Admin/UserTable';
 import UpdateUser from './components/Admin/UpdateUser';
 import ReviewsTable from './components/Admin/ReviewsTable';
+import VoucherTable from './components/Admin/VoucherTable';
+import PaymentSettings from './components/Admin/PaymentSettings';
 import Wishlist from './components/Wishlist/Wishlist';
 import NotFound from './components/NotFound';
 
@@ -236,7 +238,21 @@ function App() {
             </Dashboard>
           </ProtectedRoute>
         } ></Route>
+<Route path="/admin/vouchers" element={
+  <ProtectedRoute isAdmin={true}>
+    <Dashboard activeTab={6}>
+      <VoucherTable />
+    </Dashboard>
+  </ProtectedRoute>
+} ></Route>
 
+<Route path="/admin/payment-settings" element={
+  <ProtectedRoute isAdmin={true}>
+    <Dashboard activeTab={7}>
+      <PaymentSettings />
+    </Dashboard>
+  </ProtectedRoute>
+} ></Route>
         <Route path="*" element={<NotFound />}></Route>
 
       </Routes>

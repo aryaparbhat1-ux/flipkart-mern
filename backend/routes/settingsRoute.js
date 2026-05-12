@@ -1,0 +1,10 @@
+const express = require('express');
+const {isAuthenticatedUser, authorizeRoles} = require('../middlewares/auth');
+const {getPaymentSettings,updatePaymentSettings,createVoucher,getVouchers,validateVoucher} = require('../controllers/settingsController');
+const router = express.Router();
+router.get('/payment-settings',getPaymentSettings);
+router.put('/admin/payment-settings',isAuthenticatedUser,authorizeRoles('admin'),updatePaymentSettings);
+router.post('/admin/voucher',isAuthenticatedUser,authorizeRoles('admin'),createVoucher);
+router.get('/admin/vouchers',isAuthenticatedUser,authorizeRoles('admin'),getVouchers);
+router.post('/voucher/validate',validateVoucher);
+module.exports=router;
